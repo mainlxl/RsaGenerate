@@ -8,6 +8,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"runtime"
 	"strconv"
 	"strings"
 )
@@ -136,5 +137,13 @@ func OutputPem(privateKey *rsa.PrivateKey, profix string) (string, error) {
 	fmt.Fprintf(info, "\n%s\n", string(privateKeyBase64))
 	fmt.Fprintf(outInfoLog, "\n私钥已保存到%s文件中", privateKeyFile.Name())
 	fmt.Fprintf(outInfoLog, "\n%s\n", string(privateKeyBase64))
-	return outInfoLog.String(), nil
+
+	if runtime.GOOS == "windows" {
+		// 如果是Windows系统，将"\r\n"替换为"\n"
+		processedString := strings.Replace(outInfoLog.String(), "\n", "\n\n", -1)
+		return processedString, nil
+	} else {
+		// 对于其他系统，不做处理，直接输出原始字符串
+		return outInfoLog.String(), nil
+	}
 }
