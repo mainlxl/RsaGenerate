@@ -1,0 +1,77 @@
+object MainWindow: TMainWindow
+  Left = 577
+  Height = 599
+  Top = 214
+  Width = 723
+  Caption = 'Rsa生成器'
+  ClientHeight = 599
+  ClientWidth = 723
+  OnCreate = FormCreate
+  LCLVersion = '2.2.6.0'
+  object Label1: TLabel
+    Left = 32
+    Height = 16
+    Top = 28
+    Width = 37
+    AutoSize = False
+    Caption = '路径：'
+    ParentColor = False
+  end
+  object GenerateBtn: TButton
+    Left = 448
+    Height = 48
+    Top = 528
+    Width = 219
+    Caption = '生成'
+    OnClick = GenerateBtnClick
+    TabOrder = 0
+  end
+  object PathSelectBtn: TButton
+    Left = 608
+    Height = 20
+    Top = 24
+    Width = 76
+    Caption = '选择路径'
+    OnClick = PathSelectBtnClick
+    TabOrder = 1
+  end
+  object ObtainPrivateInfoBtn: TButton
+    Left = 64
+    Height = 48
+    Top = 528
+    Width = 219
+    Caption = '通过已有私钥获取公钥'
+    OnClick = ObtainPrivateInfoBtnClick
+    TabOrder = 2
+  end
+  object OutText: TMemo
+    Left = 32
+    Height = 442
+    Top = 72
+    Width = 656
+    OnChange = OutTextChange
+    ParentBidiMode = False
+    ScrollBars = ssAutoVertical
+    TabOrder = 3
+  end
+  object OutPath: TEdit
+    Left = 72
+    Height = 22
+    Top = 24
+    Width = 528
+    TabOrder = 4
+    TextHint = '请输入输出路径'
+  end
+  object Label2: TLabel
+    Left = 552
+    Height = 16
+    Top = 576
+    Width = 163
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '作者：Mainlxl　版本：1.0.0'
+    Font.Color = clGrayText
+    ParentColor = False
+    ParentFont = False
+  end
+end
