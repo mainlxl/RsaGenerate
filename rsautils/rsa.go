@@ -140,7 +140,7 @@ func OutputPem(privateKey *rsa.PrivateKey, profix string) (string, error) {
 
 	if runtime.GOOS == "windows" {
 		// 如果是Windows系统，将"\r\n"替换为"\n"
-		processedString := strings.Replace(outInfoLog.String(), "\n", "\n\n", -1)
+		processedString := strings.Replace(outInfoLog.String(), "\n", "\r\n", -1)
 		return processedString, nil
 	} else {
 		// 对于其他系统，不做处理，直接输出原始字符串
