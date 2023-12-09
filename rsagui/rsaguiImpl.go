@@ -8,6 +8,7 @@ import (
 	"github.com/ying32/govcl/vcl/types"
 	"os"
 	"os/user"
+	"path"
 )
 
 //::private::
@@ -17,7 +18,7 @@ type TMainWindowFields struct {
 func (f *TMainWindow) OnFormCreate(sender vcl.IObject) {
 	f.OutText.ReadOnly()
 	u, _ := user.Current()
-	f.OutPath.SetText(u.HomeDir + "/Desktop")
+	f.OutPath.SetText(path.Join(u.HomeDir, "Desktop"))
 }
 
 func (f *TMainWindow) OnPathSelectBtnClick(sender vcl.IObject) {
@@ -103,4 +104,3 @@ func ensurePath(path string) (string, error) {
 func (f *TMainWindow) OnOutTextChange(sender vcl.IObject) {
 
 }
-
